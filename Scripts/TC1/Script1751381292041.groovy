@@ -36,16 +36,16 @@ WebUI.navigateToUrl(url)
 WebUI.verifyElementPresent(makeTestObject('coreTable', 'id("core")//table'), 10)
 
 // get the list of <th>Name</th>...<th>CPU</th>... as the column titles
-List<WebElement> listOfTdInThead = 
+List<WebElement> listOfThInThead = 
 	WebUI.findWebElements(
 		makeTestObject('listofTdInThead', 'id("core")//table/thead/tr/th'), 10)
 
 // find the index of "Name" column
-int nameColumnIndex = findIndexOfWebElementByText(listOfTdInThead, 'Name')
+int nameColumnIndex = findIndexOfWebElementByText(listOfThInThead, 'Name')
 println "nameColumnIndex=${nameColumnIndex}"
 
 // find the index of "CPU" column
-int cpuColumnIndex = findIndexOfWebElementByText(listOfTdInThead, 'CPU')
+int cpuColumnIndex = findIndexOfWebElementByText(listOfThInThead, 'CPU')
 println "cpuColumnIndex=${cpuColumnIndex}"
 
 // get the list of <td>Chrome</td>...<td>Firefox</td>... as the browser names
