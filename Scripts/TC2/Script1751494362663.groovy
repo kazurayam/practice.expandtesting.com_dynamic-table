@@ -5,6 +5,8 @@ import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 /**
+ * TC2
+ * 
  * A proposal to the question at
  * https://forum.katalon.com/t/how-handle-a-dynamic-webtable-in-katalon-studio-what-are-the-ways-we-can-access-the-table/177118/
  */
@@ -26,7 +28,7 @@ int findIndexOfWebElementByText(List<WebElement> list, String text) {
 }
 
 String getCellText(String browser, String metric) {
-	println ">>> browser=${browser}, metric=${metric}"
+	println "\n>>> browser=${browser}, metric=${metric}"
 	
 	// get the list of <th>Name</th>...<th>CPU</th>... as the column titles
 	List<WebElement> listOfThInThead =
