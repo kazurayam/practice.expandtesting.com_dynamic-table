@@ -12,7 +12,7 @@ The TC1 can scrape the "Chrome-CPU" data successfully.
 
 https://github.com/kazurayam/practice.expandtesting.com_dynamic-table/blob/main/Scripts/TC1/Script1751381292041.groovy
 
-I think that the source of TC1 looks ugly. I will show you Let me show you better variations later.
+I know, the source of TC1 looks ugly. I will show you Let me show you better variations later.
 
 The 1st result:
 
