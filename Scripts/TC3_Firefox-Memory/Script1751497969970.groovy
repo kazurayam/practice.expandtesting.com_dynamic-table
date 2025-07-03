@@ -5,15 +5,8 @@ import my.TestObjectUtils
 
 /**
  * TC3_Firefox-Memory
- *
- * A proposal to the question at
- * https://forum.katalon.com/t/how-handle-a-dynamic-webtable-in-katalon-studio-what-are-the-ways-we-can-access-the-table/177118/
  */
 
-
-// The HTML of this URL contains a terrible <table>.
-// It changes the order of rows and columns
-// every time the page is retrieved.
 String url = 'https://practice.expandtesting.com/dynamic-table'
 WebUI.openBrowser('')
 WebUI.navigateToUrl(url)

@@ -6,17 +6,38 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 /**
  * TC2
- * 
- * A proposal to the question at
- * https://forum.katalon.com/t/how-handle-a-dynamic-webtable-in-katalon-studio-what-are-the-ways-we-can-access-the-table/177118/
  */
 
+String url = 'https://practice.expandtesting.com/dynamic-table'
+WebUI.openBrowser('')
+WebUI.navigateToUrl(url)
+
+// wait for the page is loaded on the browser viewport
+WebUI.verifyElementPresent(makeTestObject('coreTable', 'id("core")//table'), 10)
+
+// get the text of Chrome-CPU cell
+String chromeCPU = getCellText("Chrome", "CPU")
+println "Chrome-CPU=${chromeCPU}"
+
+
+// get the text of Firefox-Memory cell
+String firefoxMemory = getCellText("Firefox", "Memory")
+println "Firefox-Memory=${firefoxMemory}"
+
+WebUI.closeBrowser()
+
+/*
+ * 
+ */
 TestObject makeTestObject(String id, String xpath) {
 	TestObject tobj = new TestObject(id)
 	tobj.addProperty("xpath", ConditionType.EQUALS, xpath)
 	return tobj
 }
 
+/*
+ * 
+ */
 int findIndexOfWebElementByText(List<WebElement> list, String text) {
 	int v = -1
 	list.eachWithIndex { webElement, index ->
@@ -27,6 +48,9 @@ int findIndexOfWebElementByText(List<WebElement> list, String text) {
 	return v
 }
 
+/*
+ * 
+ */
 String getCellText(String browser, String metric) {
 	println "\n>>> browser=${browser}, metric=${metric}"
 	
@@ -60,23 +84,3 @@ String getCellText(String browser, String metric) {
 	return text
 }
 
-// The HTML of this URL contains a terrible <table>.
-// It changes the order of rows and columns
-// every time the page is retrieved.
-String url = 'https://practice.expandtesting.com/dynamic-table'
-WebUI.openBrowser('')
-WebUI.navigateToUrl(url)
-
-// wait for the page is loaded on the browser viewport
-WebUI.verifyElementPresent(makeTestObject('coreTable', 'id("core")//table'), 10)
-
-// get the text of Chrome-CPU cell
-String chromeCPU = getCellText("Chrome", "CPU")
-println "Chrome-CPU=${chromeCPU}"
-
-
-// get the text of Firefox-Memory cell
-String firefoxMemory = getCellText("Firefox", "Memory")
-println "Firefox-Memory=${firefoxMemory}"
-
-WebUI.closeBrowser()

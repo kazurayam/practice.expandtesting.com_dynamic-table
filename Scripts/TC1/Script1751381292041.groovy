@@ -6,26 +6,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
 /**
  * TC1
- * 
- * A proposal to the question at
- * https://forum.katalon.com/t/how-handle-a-dynamic-webtable-in-katalon-studio-what-are-the-ways-we-can-access-the-table/177118/ 
  */
-
-TestObject makeTestObject(String id, String xpath) {
-	TestObject tobj = new TestObject(id)
-	tobj.addProperty("xpath", ConditionType.EQUALS, xpath)
-	return tobj
-}
-
-int findIndexOfWebElementByText(List<WebElement> list, String text) {
-	int v = -1
-	list.eachWithIndex { webElement, index ->
-		if (webElement.getText() == text) {
-			v = index
-		}
-	}
-	return v
-}
 
 // The HTML of this URL contains a terrible <table>. 
 // It changes the order of rows and columns
@@ -65,3 +46,25 @@ String textOfChromeCPU =
 println "textOfChromeCPU=${textOfChromeCPU}"
 
 WebUI.closeBrowser()
+
+/*
+ * 
+ */
+TestObject makeTestObject(String id, String xpath) {
+	TestObject tobj = new TestObject(id)
+	tobj.addProperty("xpath", ConditionType.EQUALS, xpath)
+	return tobj
+}
+
+/*
+ * 
+ */
+int findIndexOfWebElementByText(List<WebElement> list, String text) {
+	int v = -1
+	list.eachWithIndex { webElement, index ->
+		if (webElement.getText() == text) {
+			v = index
+		}
+	}
+	return v
+}
