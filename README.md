@@ -4,13 +4,15 @@
 
 See https://forum.katalon.com/t/how-handle-a-dynamic-webtable-in-katalon-studio-what-are-the-ways-we-can-access-the-table/177118/
 
-The original poster wanted to scrape data out of a `<table>` in https://practice.expandtesting.com/dynamic-table'. In the table, columns and rows change their position upon page reload.
+The original poster wanted to scrape data out of a `<table>` in https://practice.expandtesting.com/dynamic-table. The subject table is intentionally designed difficult to scrape. In the table, columns and rows change their position upon page reload.
 
 ## TC1
 
-I would propose this code: https://github.com/kazurayam/practice.expandtesting.com_dynamic-table/blob/main/Scripts/TC1/Script1751381292041.groovy
+The TC1 can scrape the "Chrome-CPU" data successfully.
 
-The TC1 could get the text of cell "Chrome-CPU" in the table in the https://practice.expandtesting.com/dynamic-table'
+https://github.com/kazurayam/practice.expandtesting.com_dynamic-table/blob/main/Scripts/TC1/Script1751381292041.groovy
+
+I think that the source of TC1 looks ugly. I will show you Let me show you better variations later.
 
 The 1st result:
 
@@ -19,6 +21,8 @@ nameColumnIndex=0
 cpuColumnIndex=1
 chromeRowIndex=3
 textofChromeCPU=4.6%
+```
+
 2nd result:
 
 ```
@@ -36,6 +40,8 @@ cpuColumnIndex=3
 chromeRowIndex=0
 textofChromeCPU=4.4%
 ```
+
+In the results, you can find that the `cpuColumnIndex` and `chromeRowIndex` move.
 
 ## TC2
 
