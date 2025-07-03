@@ -1,14 +1,13 @@
-package my
+package practiceexpandtesting
 
 import org.openqa.selenium.WebElement
 
 import com.kms.katalon.core.testobject.ConditionType
 import com.kms.katalon.core.testobject.TestObject
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
-import my.PracticeExpandTestingDynamicTableScraper as Scraper
 import my.TestObjectUtils
 
-public class PracticeExpandTestingDynamicTableScraper {
+public class DynamicTableScraper {
 
 	static String getCellText(String browser, String metric) {
 		println "\n>>> browser=${browser}, metric=${metric}"
@@ -19,7 +18,7 @@ public class PracticeExpandTestingDynamicTableScraper {
 				TestObjectUtils.makeTestObject('listofTdInThead', 'id("core")//table/thead/tr/th'), 10)
 
 		// find the index of "Name" column
-		int nameColumnIndex = Scraper.findIndexOfWebElementByText(listOfThInThead, "Name")
+		int nameColumnIndex = findIndexOfWebElementByText(listOfThInThead, "Name")
 		println "nameColumnIndex=${nameColumnIndex}"
 		assert nameColumnIndex >= 0
 

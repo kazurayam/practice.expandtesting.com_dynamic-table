@@ -1,10 +1,10 @@
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 
-import my.PracticeExpandTestingDynamicTableScraper as Scraper
+import practiceexpandtesting.DynamicTableScraper as Scraper
 import my.TestObjectUtils
 
 /**
- * TC3
+ * TC3ChromeCPU
  * 
  * A proposal to the question at
  * https://forum.katalon.com/t/how-handle-a-dynamic-webtable-in-katalon-studio-what-are-the-ways-we-can-access-the-table/177118/
@@ -21,14 +21,7 @@ WebUI.navigateToUrl(url)
 // wait for the page is loaded on the browser viewport
 WebUI.verifyElementPresent(TestObjectUtils.makeTestObject('coreTable', 'id("core")//table'), 10)
 
-def targets = [ ["Name": "Chrome", "Metric": "CPU"],
-				["Name": "Firefox", "Metric": "Memory"],
-				["Name": "System", "Metric": "Network"]
-				]
-
-targets.each { entry ->
-	String text = Scraper.getCellText(entry.Name, entry.Metric)
-	println "Name:${entry.Name}, Metric:${entry.Metric}, text:${text}"
-}
+String text = Scraper.getCellText("Chrome", "CPU")
+println "Name:Chrome, Metric:CPU, text:${text}"
 
 WebUI.closeBrowser()
