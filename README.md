@@ -78,9 +78,9 @@ https://github.com/kazurayam/practice.expandtesting.com_dynamic-table/blob/main/
 
 https://github.com/kazurayam/practice.expandtesting.com_dynamic-table/blob/main/Scripts/TC3_Firefox-Memory/Script1751497969970.groovy
 
-These 2 test case scripts calls external Groovy classes. Thus code duplication is minimized.
+These 2 test case scripts calls the external Groovy classes. Thus code duplication is minimized.
 
-## TC4
+## Custom Keyword
 
 Finally, I want to edit a Test Case that calls the `practiceexpandtesting.DynamicTableScraper` class in the Manual view. How to make it possible?
 
