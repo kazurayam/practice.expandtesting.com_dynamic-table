@@ -45,21 +45,20 @@ In the results, you can find that the `cpuColumnIndex` and `chromeRowIndex` move
 
 ## TC2
 
-The TC1 can extract data of "Chrome-CPU" only. Next, I want the data of "Firefox-Memory" as well. How to do it?
+The TC1 can extract data of "Chrome-CPU" only. Next, I want to scrape the data of "Firefox-Memory" as well. How to do it?
 
 In the TC2 introduces one more layer of function `String getCellText(String browser, String metric)`.
-The `getCellText` function is located inside the TC2. TC2 calls this function twice with different set of arguments.
+TC2 calls this function twice with different set of arguments.
 
 https://github.com/kazurayam/practice.expandtesting.com_dynamic-table/blob/main/Scripts/TC2/Script1751494362663.groovy
 
+Please note that the `getCellText` function is located inside the TC2, therefore the `getCellText` is available for the TC2 only; no other scripts can use it.
 
-## TC3_Chrome-CPU, TC3_Chrome-Memory
+## TC3_Chrome-CPU, TC3_Firefox-Memory
 
-The TC2 calls the `getCellText` function which is located inside the TC2 itself.
+Next I want to make 2 seperated Test Case scripts. One script will scrape the Chrome-CPU data. Another script will scrape the Firefox-Memory data.
 
-Next I want to make 2 seperated Test Case scripts. One script will extract the Chrome-CUP data. Another script will extract the Firefox-Memory data. I want to avoid any code duplication. How can I do it?
-
-I created 2 Groovy classes in the `Keywords` folder:
+I want to avoid any code duplication. So, I created 2 Groovy classes in the `Keywords` folder:
 
 ### `practiceexpandtesting.DynamicTableScraper`
 
@@ -69,11 +68,11 @@ https://github.com/kazurayam/practice.expandtesting.com_dynamic-table/blob/main/
 
 https://github.com/kazurayam/practice.expandtesting.com_dynamic-table/blob/main/Keywords/my/TestObjectUtils.groovy
 
-and I created 2 test case scripts that call the Groovy classes.
+and I created 2 test case scripts that call these Groovy classes.
 
 ### `TC3_Chrome-CPU`
 
-https://github.com/kazurayam/practice.expandtesting.com_dynamic-table/blob/main/Keywords/my/TestObjectUtils.groovy
+https://github.com/kazurayam/practice.expandtesting.com_dynamic-table/blob/main/Scripts/TC3_Chrome-CPU/Script1751497969970.groovy
 
 ### `TC3_Firefox-Memory`
 
@@ -83,7 +82,7 @@ These 2 test case scripts calls external Groovy classes. Thus code duplication i
 
 ## TC4
 
-I want to edit in the Manual view a Test Case that calls the `practiceexpandtesting.DynamicTableScraper` class. Is it possible?
+Finally, I want to edit a Test Case that calls the `practiceexpandtesting.DynamicTableScraper` class in the Manual view. How to make it possible?
 
 I created a custom *Keyword* that indirectory calls the `practiceexpandtesting.DynamicTableScraper` class:
 
